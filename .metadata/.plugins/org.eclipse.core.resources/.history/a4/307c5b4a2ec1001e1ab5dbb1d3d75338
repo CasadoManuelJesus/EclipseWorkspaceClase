@@ -1,0 +1,6 @@
+public class Producto {
+private Integer codigoProducto;
+private String nombreProd;
+private Integer stock;
+private Double precio;
+}

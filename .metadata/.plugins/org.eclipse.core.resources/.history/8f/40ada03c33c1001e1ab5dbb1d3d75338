@@ -1,0 +1,13 @@
+
+public class RealizaCompra {
+	Tienda tienda;
+
+	public RealizaCompra() {
+		this.tienda = new Tienda();
+	}
+	
+	
+	
+	
+	
+}

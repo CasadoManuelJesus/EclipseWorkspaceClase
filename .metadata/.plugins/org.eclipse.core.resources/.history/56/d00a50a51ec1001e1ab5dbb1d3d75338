@@ -1,0 +1,30 @@
+package Ejercicio1;
+
+public class Hilo extends Thread{
+	public static void main(String[] args) {
+		Thread[] hilos = new Thread[3];
+		for (int i = 0; i < hilos.length; i++) {
+			int num_aleatorio=(int) Math.floor(Math.random() * 10 + 1);
+			hilos[i] = new Thread();
+			hilos[i].setName("0"+i);
+			//System.out.println(num_aleatorio);
+			hilos[i].setPriority(num_aleatorio);
+			hilos[i].start();
+		}
+		
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Dentro del hilo "+getName());
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Salgo del hilo "+getName());
+	}
+	
+
+}

@@ -1,0 +1,5 @@
+public class ItemProducto {
+private Integer codigoProducto;
+private Integer cantidad;
+private Double precio;
+}

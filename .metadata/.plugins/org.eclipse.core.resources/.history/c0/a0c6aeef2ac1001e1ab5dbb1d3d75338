@@ -1,0 +1,56 @@
+package Ejercicio3;
+
+/*
+ * 3.- Diseñar un programa en modo consola que cree tres ficheros de texto con
+ * los números del 0 al 10000. El primer fichero tiene una prioridad máxima con
+ * respecto al segundo y la creación del tercer fichero debe ser en segundo plano.
+ * Comprobar cuándo finaliza la creación de cada fichero con un mensaje en consola.
+ */
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Hilo extends Thread {
+
+	public static void main(String[] args) {
+		Hilo hiloPrioridadMaxima = new Hilo();
+		hiloPrioridadMaxima.setPriority(MAX_PRIORITY);
+		
+		Hilo hiloNormal=new Hilo();
+		hiloNormal.setPriority(NORM_PRIORITY);
+		
+		Hilo hiloSegundoPlano = new Hilo();
+		hiloSegundoPlano.setPriority(MIN_PRIORITY);
+		
+		hiloPrioridadMaxima.start();
+		hiloNormal.start();
+		hiloSegundoPlano.start();
+	}
+	
+	@Override
+	public void run() {
+		crearFichero(getName());
+		System.out.println("Hilo: "+getName()+" finalizado");
+	}
+
+	private void crearFichero(String nombre) {
+		try {
+			String ruta = "home/usuario/Escritorio/"+nombre+".txt";
+			File archivo = new File(ruta);
+			BufferedWriter bw;
+			bw = new BufferedWriter(new FileWriter(archivo));
+			for (int i = 0; i <= 10000; i++) {
+                bw.write(Integer.toString(i));
+                bw.newLine();
+            }
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
