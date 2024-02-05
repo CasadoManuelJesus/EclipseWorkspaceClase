@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tienda {
+public class Tienda{
 	private List<Cliente> carroClientes; // carrito de compra de clientes
 	private List<Producto> productos; // lista de productos de la tienda
 //constructor ejemplo

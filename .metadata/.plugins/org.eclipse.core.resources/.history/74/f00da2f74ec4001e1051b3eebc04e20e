@@ -1,0 +1,20 @@
+import java.util.List;
+
+public class Compra extends Thread{
+	List<ItemProducto> carrito;
+
+	
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

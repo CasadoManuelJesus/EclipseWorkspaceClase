@@ -12,6 +12,22 @@ public class Cliente {
 		this.nombre = nombre;
 		this.factura = factura;
 	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public List<ItemProducto> getFactura() {
+		return factura;
+	}
+
+	
+	
 	
 	
 }

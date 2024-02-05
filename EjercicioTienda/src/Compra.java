@@ -1,0 +1,32 @@
+import java.util.List;
+
+public class Compra extends Thread{
+	Cliente cliente;
+	List<Producto> productos;
+	Boolean compraRealizable;
+	
+	public Compra(Cliente cliente, List<Producto> productos) {
+		super();
+		this.cliente = cliente;
+		this.productos = productos;
+		this.compraRealizable = true;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Empieza la compra del cliente: " + this.cliente.getNombre());
+		var carrito = this.cliente.getFactura();
+		for (int i = 0; i < carrito.size() && compraRealizable; i++) {
+			Producto producto =
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

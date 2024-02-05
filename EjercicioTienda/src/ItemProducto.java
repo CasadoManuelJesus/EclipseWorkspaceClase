@@ -9,4 +9,17 @@ public class ItemProducto {
 		this.cantidad = cantidad;
 		this.precio = precio;
 	}
+
+	public Integer getCodigoProducto() {
+		return codigoProducto;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+	
 }

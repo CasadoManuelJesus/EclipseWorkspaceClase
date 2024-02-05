@@ -12,4 +12,22 @@ public class Producto {
 		this.precio = precio;
 	}
 
+	public Integer getCodigoProducto() {
+		return codigoProducto;
+	}
+
+	public String getNombreProd() {
+		return nombreProd;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+	
+	
+
 }

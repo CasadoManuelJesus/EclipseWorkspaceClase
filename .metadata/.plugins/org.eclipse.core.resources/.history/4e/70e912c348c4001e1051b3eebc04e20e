@@ -1,0 +1,13 @@
+package Ejercicio6;
+/*
+ * 6.- Crear un vector con quinientos millones de elementos con valores
+ * aleatorios. Proceder a buscar el mayor sin el empleo de hilos, luego buscar el
+ * mayor pero utilizando dos hilos, uno que busque el mayor en la primera parte
+ * del vector y otro que busque en la segunda parte.
+ * Mostrar la cantidad de tiempo consumido en la búsqueda del mayor con hilos y
+ * sin hilos.
+ */
+
+public class HiloBusquedaMayor {
+	
+}

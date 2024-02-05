@@ -13,6 +13,7 @@ public class HiloFichero {
 		Hilo hiloSegundoPlano = new Hilo();
 		hiloSegundoPlano.setPriority(1);
 		hiloSegundoPlano.setName("MIN PRIORIDAD");
+		hiloSegundoPlano.setDaemon(true);
 		
 		hiloPrioridadMaxima.start();
 		hiloNormal.start();

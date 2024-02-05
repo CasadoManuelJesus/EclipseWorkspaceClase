@@ -1,0 +1,66 @@
+package Ejercicio6;
+
+public class BusquedaMayor {
+	public static void main(String[] args) {
+		int tamanhoVector = 50000000;
+		int[] vector = generarVector(tamanhoVector);
+		
+		//Sin hilos
+		long inicioSinHilos = System.currentTimeMillis();
+		int mayorSinHilos = busquedaMayorSinHilos(vector);
+		long finSinHilos = System.currentTimeMillis();
+		
+		//Con hilos
+		long inicioConHilos = System.currentTimeMillis();
+		int mayorConHilos = busquedaMayorConHilos(vector);
+		long finConHilos = System.currentTimeMillis();
+		
+		//Resultados
+		System.out.println("Mayor sin hilos: "+mayorSinHilos+"En un tiempo de: "+(finSinHilos-inicioSinHilos)+"milisegundos");
+		System.out.println("Mayor con hilos: "+mayorConHilos+"En un tiempo de: "+(finConHilos-inicioConHilos)+"milisegundos");
+
+	}
+
+	private static int busquedaMayorConHilos(int[] vector) {
+		int mitad = vector.length/2;
+		HiloBusquedaMayor hilo1 = new HiloBusquedaMayor(vector, 0, mitad);
+		HiloBusquedaMayor hilo2 = new HiloBusquedaMayor(vector, mitad, vector.length);
+		
+		hilo1.start();
+		hilo2.start();
+		try {
+			hilo1.join();
+			hilo2.join();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (hilo1.getNumMayor()> hilo2.getNumMayor()) {
+			return hilo1.getNumMayor();
+		} else {
+			return hilo2.getNumMayor();
+		}
+	}
+
+	private static int busquedaMayorSinHilos(int[] vector) {
+		if (vector.length == 0) {
+	        throw new IllegalArgumentException("El vector no puede estar vacío.");
+	    }
+		int resultado = 0;
+		for (int num : vector) {
+			if (num > resultado) {
+				resultado = num;
+			}
+		}
+		return resultado;
+	}
+
+	private static int[] generarVector(int tamanhoVector) {
+	    int[] vector = new int[tamanhoVector];
+	    for (int i = 0; i < tamanhoVector; i++) {
+	        int numAle = (int) (Math.random() * (tamanhoVector + 1));
+	        vector[i] = numAle;
+	    }
+	    return vector;
+	}
+
+}
