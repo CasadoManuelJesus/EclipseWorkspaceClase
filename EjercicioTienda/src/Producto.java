@@ -27,6 +27,12 @@ public class Producto {
 	public Double getPrecio() {
 		return precio;
 	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	
 	
 	
 
